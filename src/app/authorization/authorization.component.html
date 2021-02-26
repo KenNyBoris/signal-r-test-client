@@ -1,0 +1,17 @@
+<form [hidden]="isLogined" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    Add your Name to authorize: <input formControlName="userName" type="text">
+    <button type="submit">Log In</button>
+</form>
+<ng-container *ngIf="isLogined">
+    <button (click)="logout()">Log out</button>
+</ng-container>
+<p *ngIf="authenticatedUsers.length">
+    Authenticated users:
+</p>
+
+<div>
+<ul *ngFor="let user of authenticatedUsers">
+    <li>
+        {{user.username}}
+    </li>
+</ul>
